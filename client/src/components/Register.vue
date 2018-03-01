@@ -8,7 +8,7 @@
 
         <div class="pl4 pr-4 pt-2 pb-2">
           <v-text-field label="email" v-model="email"></v-text-field>
-          <v-text-field label="password" v-model="password"></v-text-field>
+          <v-text-field type="password" label="password" v-model="password"></v-text-field>
           <div class="error" v-html="error"></div>
           <v-btn class="sign" @click="register">Sign up</v-btn>
         </div>
@@ -46,7 +46,12 @@ export default {
 <style scoped>
 .error {
   margin-top: 10px;
+  background-color: inherit!important;
   color: crimson;
   font-size: 0.9em;
+}
+
+.pl4{
+  margin-left: 25px!important;
 }
 </style>

@@ -7,6 +7,10 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/',
+      name: 'root',
+    },
+    {
       path: '/register',
       name: 'register',
       component: Register
