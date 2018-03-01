@@ -7,9 +7,9 @@
         </v-toolbar>
 
         <div class="pl4 pr-4 pt-2 pb-2">
-          <input type="email" name="email" v-model="email" placeholder="email"><br>
-          <input type="password" name="password" v-model="password" placeholder="password"><br>
-          <div class="error" v-html="error"></div><br>
+          <v-text-field label="email" v-model="email"></v-text-field>
+          <v-text-field label="password" v-model="password"></v-text-field>
+          <div class="error" v-html="error"></div>
           <v-btn class="sign" @click="register">Sign up</v-btn>
         </div>
       </div>
