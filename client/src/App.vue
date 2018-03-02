@@ -35,7 +35,7 @@ export default {
 }
 
 .toolbar__content {
-  background-color: #caccd1;
+  background-color: #76B39D;
 }
 
 </style>

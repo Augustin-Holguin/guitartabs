@@ -1,10 +1,23 @@
 const {User} = require('../models')
+const jwt = require('jsonwebtoken') //jwt is an open standard that defines a compact and self-contained way of securely transmitting information between two parties as a JSON object
+const config = require('../config/config')
+
+function jwtSignUser (user) {
+  const ONE_WEEK = 60 * 60 * 24 * 7
+  return jwt.sign(user, config.authentication.jwtSecret, {
+    expiresIn: ONE_WEEK
+  })
+}
 
 module.exports = {
   async register (req, res) {
     try {
       const user = await User.create(req.body)
-      res.send(user.toJSON())
+      const userJson = user.toJSON()
+      res.send({
+        user: userJson,
+        token: jwtSignUser(userJson)
+      })
     } catch (err) {
       res.status(400).send({
         error: 'Someone already created an account with this email.' // ex: email already exists
@@ -19,13 +32,14 @@ module.exports = {
           email: email
         }
       })
+      
       if (!user) {
         return res.status(403).send({
           error: 'Login information is incorrect'
         })
       }
 
-      const isPasswordValid = password === user.password
+      const isPasswordValid = await user.comparePassword(password)
       if (!isPasswordValid) {
         return res.status(403).send({
           error: 'Login information is incorrect'
@@ -34,7 +48,8 @@ module.exports = {
 
       const userJson = user.toJSON()
       res.send({
-        user: userJson
+        user: userJson,
+        token: jwtSignUser(userJson)
       })
     } catch (err) {
       res.status(500).send({
