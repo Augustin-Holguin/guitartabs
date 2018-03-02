@@ -7,8 +7,10 @@
         </v-toolbar>
 
         <div class="pl-4 pr-4 pt-2 pb-2">
-          <v-text-field label="email" v-model="email"></v-text-field>
-          <v-text-field type="password" label="password" v-model="password"></v-text-field>
+          <form name="tab-tracker-form" autocomplete="off">
+            <v-text-field label="email" v-model="email"></v-text-field>
+            <v-text-field type="password" label="password" v-model="password" autocomplete="new-password"></v-text-field>
+          </form>
           <div class="error" v-html="error"></div>
           <v-btn class="sign" @click="register">Sign up</v-btn>
         </div>
@@ -30,10 +32,12 @@ export default {
   methods: {
     async register () {
       try {
-        await AuthenticationService.register({
+        const response = await AuthenticationService.register({
           email: this.email,
           password: this.password
         })
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
         this.error = error.response.data.error
       }
