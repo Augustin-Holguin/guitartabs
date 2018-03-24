@@ -38,4 +38,9 @@ export default {
   background-color: #0064ff;
 }
 
+.danger-alert {
+  color: red;
+  margin-top: 5px;
+}
+
 </style>
