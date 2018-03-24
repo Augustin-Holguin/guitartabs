@@ -2,19 +2,19 @@
   <v-layout>
     <v-flex xs4>
       <panel title="Song Metadata">
-        <v-text-field label="Title" v-model="song.title"></v-text-field>
-        <v-text-field label="Artist" v-model="song.artist"></v-text-field>
-        <v-text-field label="Genre" v-model="song.genre"></v-text-field>
-        <v-text-field label="Album" v-model="song.album"></v-text-field>
-        <v-text-field label="Album Image URL" v-model="song.albumImageUrl"></v-text-field>
-        <v-text-field label="YouTube ID" v-model="song.youtubeId"></v-text-field>
+        <v-text-field label="Title" required :rules="[rules.required]" v-model="song.title"></v-text-field>
+        <v-text-field label="Artist" required :rules="[rules.required]" v-model="song.artist"></v-text-field>
+        <v-text-field label="Genre" required :rules="[rules.required]" v-model="song.genre"></v-text-field>
+        <v-text-field label="Album" required :rules="[rules.required]" v-model="song.album"></v-text-field>
+        <v-text-field label="Album Image URL" required :rules="[rules.required]" v-model="song.albumImageUrl"></v-text-field>
+        <v-text-field label="YouTube ID" required :rules="[rules.required]" v-model="song.youtubeId"></v-text-field>
       </panel>
     </v-flex>
 
     <v-flex xs8>
       <panel title="Lyrics & Tab" class="ml-3">
-        <v-text-field label="Lyrics" multi-line v-model="song.lyrics"></v-text-field>
-        <v-text-field label="Tab" multi-line v-model="song.tab"></v-text-field>
+        <v-text-field label="Lyrics" multi-line required :rules="[rules.required]" v-model="song.lyrics"></v-text-field>
+        <v-text-field label="Tab" multi-line required :rules="[rules.required]" v-model="song.tab"></v-text-field>
       </panel>
 
       <v-btn @click="create">Create song</v-btn>
@@ -39,6 +39,9 @@ export default {
         youtubeId: null,
         lyrics: null,
         tab: null
+      },
+      rules: {
+        required: (value) => !!value || 'Required.'
       }
     }
   },
