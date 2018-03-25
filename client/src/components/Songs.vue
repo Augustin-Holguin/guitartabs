@@ -1,6 +1,6 @@
 <template>
   <v-layout column>
-    <v-flex xs6 offset-xs3>
+    <v-flex xs6 offset-xs3 class="mt-2">
       <panel title="Songs">
         <v-btn slot="action" @click="navigateTo({name: 'songs-create'})" fab small light absolute right middle>
           <v-icon>add</v-icon>

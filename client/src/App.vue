@@ -2,6 +2,13 @@
   <div id="app">
     <v-app>
       <page-header/>
+      <!-- <div style="margin-top:35px" v-if="$router.name = 'root'">
+        <h1 style="opacity:0.85 ; font-size:4em">Welcome to tabtracker</h1>
+        <p style="font-size:2em">
+          The ultimate website to find and learn your favourite songs
+        </p>
+        <iframe src="https://giphy.com/embed/JNMFUwShabBUQ" width="480" height="349" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+      </div> -->
       <v-content>
         <v-container fluid>
           <router-view/>

@@ -1,6 +1,6 @@
 <template>
   <v-layout column>
-    <v-flex xs6 offset-xs3>
+    <v-flex xs6 offset-xs3 class="mt-2">
       <panel title="Login">
         <v-text-field label="email" v-model="email"></v-text-field>
         <v-text-field type="password" label="password" v-model="password"></v-text-field>

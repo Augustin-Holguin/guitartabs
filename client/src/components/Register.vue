@@ -1,6 +1,6 @@
 <template>
   <v-layout column>
-    <v-flex xs6 offset-xs3>
+    <v-flex xs6 offset-xs3 class="mt-2">
       <panel title="Register">
         <form name="tab-tracker-form" autocomplete="off">
           <v-text-field label="email" v-model="email"></v-text-field>
