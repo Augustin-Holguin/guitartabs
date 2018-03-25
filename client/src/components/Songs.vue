@@ -66,6 +66,8 @@ export default {
 
 .song-title {
   font-size: 28px;
+  font-weight: bold;
+  opacity: 0.85;
 }
 
 .song-artist {
