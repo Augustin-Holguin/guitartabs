@@ -30,6 +30,7 @@ textarea {
   border-style: none;
   overflow: auto;
   border-color: transparent;
+  text-align: center;
 }
 
 </style>
