@@ -24,7 +24,7 @@ export default {
 
 textarea {
   width: 100%;
-  height: 300px;
+  height: 500px;
   border: none;
   font-family: monospace;
   border-style: none;

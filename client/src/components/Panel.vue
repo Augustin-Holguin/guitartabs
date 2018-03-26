@@ -1,7 +1,7 @@
 <!-- SUBCOMPONENT WHICH WE CALL ON OTHER PARTS OF THE APP TO HAVE CLEANER CODE -->
 <template>
   <div class="white elevation-2">
-    <v-toolbar flat dense class="cyan" dark>
+    <v-toolbar flat dense dark>
       <v-toolbar-title>{{title}}</v-toolbar-title>
       <slot name="action"/>
     </v-toolbar>
