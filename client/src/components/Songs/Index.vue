@@ -1,43 +1,20 @@
 <template>
   <v-layout column>
     <v-flex xs6 offset-xs3 class="mt-2">
-      <panel title="Songs">
-        <v-btn slot="action" @click="navigateTo({name: 'songs-create'})" fab small light absolute right middle>
-          <v-icon>add</v-icon>
-        </v-btn>
-        <div class="song" v-for="song in songs" :key="song.id">
-          <v-layout>
-            <v-flex xs6>
-              <div class="song-title">
-                {{ song.title }}
-              </div>
-              <div class="song-artist">
-                {{ song.artist }}
-              </div>
-              <div class="song-genre">
-                {{ song.genre }}
-              </div>
-
-              <v-btn @click="navigateTo({name: 'song', params: {songId: song.id}})">View</v-btn>
-            </v-flex>
-
-            <v-flex xs6>
-              <img class="album-image" :src="song.albumImageUrl"/>
-            </v-flex>
-          </v-layout>
-        </div>
-      </panel>
+      <songs-panel />
     </v-flex>
   </v-layout>
 </template>
 
 <script>
+import SongsPanel from './SongsPanel'
 import SongsService from '@/services/SongsService'
 import Panel from '@/components/Panel'
 
 export default {
   components: {
-    Panel
+    Panel,
+    SongsPanel
   },
   data () {
     return {
