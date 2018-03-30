@@ -37,7 +37,7 @@ export default {
 }
 
 .toolbar__content {
-  background-color: #0064ff;
+  background-color: #0169a4;
 }
 
 .danger-alert {

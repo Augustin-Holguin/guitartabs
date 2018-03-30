@@ -15,7 +15,17 @@
           {{ song.album }}
         </div>
 
-        <v-btn @click="navigateTo({name: 'song-edit', params: {songId: song.id}})">Edit</v-btn>
+        <v-btn
+          :to="{
+            name: 'song-edit',
+            params () {
+              return {
+                songId: song.id
+              }
+            }
+          }">
+          Edit
+        </v-btn>
       </v-flex>
 
       <v-flex xs6>
@@ -30,12 +40,7 @@
 export default {
   props: [
     'song'
-  ],
-  methods: {
-    navigateTo (route) {
-      this.$router.push(route)
-    }
-  }
+  ]
 }
 </script>
 

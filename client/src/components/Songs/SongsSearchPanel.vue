@@ -1,7 +1,7 @@
 <template>
-  <panel title="Search">
+  <div class="searchBar">
     <v-text-field label="Search by song, artist, album or genre" v-model="search"></v-text-field>
-  </panel>
+  </div>
 </template>
 
 <script>
@@ -23,7 +23,7 @@ export default {
         }
       }
       this.$router.push(route)
-    }, 700),  // only does server request after 700ms
+    }, 500),  // only does server request after 700ms
     '$route.query.search': {
       immediate: true,
       handler (value) {
@@ -35,4 +35,9 @@ export default {
 </script>
 
 <style scoped>
+.searchBar {
+  background: #d7d7d8;
+  height: 60px;
+  padding: 0px 15px;
+}
 </style>
