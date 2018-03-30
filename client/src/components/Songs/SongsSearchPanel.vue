@@ -23,7 +23,7 @@ export default {
         }
       }
       this.$router.push(route)
-    }, 500),  // only does server request after 700ms
+    }, 500), // only does server request after 700ms
     '$route.query.search': {
       immediate: true,
       handler (value) {
